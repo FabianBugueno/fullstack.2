@@ -8,6 +8,6 @@ import com.edutech.principal.model.entity.UsuarioEntity;
 @Repository
  public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Integer> {
     UsuarioEntity findByCorreo(String correo);
-    Boolean exitsByCorreo(String correo);
+    Boolean existsByCorreo(String correo);
     void deleteByCorreo(String correo);
 }
