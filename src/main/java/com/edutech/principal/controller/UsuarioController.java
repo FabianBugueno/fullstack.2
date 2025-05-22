@@ -30,7 +30,9 @@ public class UsuarioController {
             return ResponseEntity.ok(usuario);
         } else {
             return ResponseEntity.notFound().build();
+        }
     }
+
     @GetMapping("/obtenerUsuarioDto/{id}")
     public ResponseEntity<UsuarioDto> obtenerUsuarioDto(@PathVariable int id){
         if (usuarioService.obtenerUsuarioDto(id) != null) {
@@ -38,6 +40,6 @@ public class UsuarioController {
         } else {
             return ResponseEntity.notFound().build();
         }
-}   
+    }   
 }
 
