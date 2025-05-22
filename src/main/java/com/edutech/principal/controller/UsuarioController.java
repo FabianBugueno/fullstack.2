@@ -13,11 +13,14 @@ import com.edutech.principal.model.Usuario;
 import com.edutech.principal.model.dto.UsuarioDto;
 import com.edutech.principal.service.UsuarioService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Operation(summary = "Crear un nuevo usuario")
     @PostMapping("/crearUsuario")
     public ResponseEntity<String> obtenerUsuario(@RequestBody Usuario usuario) {
         return ResponseEntity.ok(usuarioService.crearUsuario(usuario));
@@ -32,7 +35,9 @@ public class UsuarioController {
             return ResponseEntity.notFound().build();
         }
     }
-
+    
+  
+    
     @GetMapping("/obtenerUsuarioDto/{id}")
     public ResponseEntity<UsuarioDto> obtenerUsuarioDto(@PathVariable int id){
         if (usuarioService.obtenerUsuarioDto(id) != null) {
