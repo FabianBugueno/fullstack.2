@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.edutech.principal.model.Usuario;
+import com.edutech.principal.model.dto.UsuarioDto;
 import com.edutech.principal.model.entity.UsuarioEntity;
 import com.edutech.principal.repository.UsuarioRepository;
 
@@ -49,5 +50,19 @@ public Usuario obteneUsuario(String correo){
     } catch (Exception e) {
         return null;
     }  
+    }
+    public UsuarioDto obtenerUsuarioDto(int id){
+        try{
+            UsuarioEntity usuario = usuarioRepository.findByIdUsuario(id);
+            UsuarioDto nuevoUsuario = new UsuarioDto(
+                usuario.getNombre(),
+                usuario.getApellidos(),
+                usuario.getCorreo()
+            );
+            return nuevoUsuario;
+
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

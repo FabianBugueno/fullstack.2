@@ -10,4 +10,5 @@ import com.edutech.principal.model.entity.UsuarioEntity;
     UsuarioEntity findByCorreo(String correo);
     Boolean existsByCorreo(String correo);
     void deleteByCorreo(String correo);
+    UsuarioEntity findByIdUsuario(int id);
 }

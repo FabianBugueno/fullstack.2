@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.edutech.principal.model.Usuario;
+import com.edutech.principal.model.dto.UsuarioDto;
 import com.edutech.principal.service.UsuarioService;
 
 @RestController
@@ -30,6 +31,13 @@ public class UsuarioController {
         } else {
             return ResponseEntity.notFound().build();
     }
+    @GetMapping("/obtenerUsuarioDto/{id}")
+    public ResponseEntity<UsuarioDto> obtenerUsuarioDto(@PathVariable int id){
+        if (usuarioService.obtenerUsuarioDto(id) != null) {
+            return ResponseEntity.ok(usuarioService.obtenerUsuarioDto(id));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
 }   
 }
 
